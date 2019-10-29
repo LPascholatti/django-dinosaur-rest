@@ -10,6 +10,9 @@ autopep8 = "*"
 [packages]
 django = "*"
 djangorestframework = "*"
+psycopg2 = "*"
+pillow = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.7"
