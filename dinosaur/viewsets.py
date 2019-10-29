@@ -4,5 +4,5 @@ from .serializers import DinosaurSerializer
 #IMPORT YOUR SERIALIZERS
 
 class DinosaurViewSet(viewsets.ModelViewSet):
-    serializer_class = DinosaurSerializer
     queryset = Dinosaur.objects.all()
+    serializer_class = DinosaurSerializer
