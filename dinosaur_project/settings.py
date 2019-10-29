@@ -76,6 +76,14 @@ WSGI_APPLICATION = 'dinosaur_project.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.postgres_psycopg2',
+        'NAME': 'dinosaurs',
+        'USER': 'postgres',
+        'PASSWORD': 'secret',
+        'HOST': 'localhost',
+        'POST': '5432'
+    },
+    'original': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
