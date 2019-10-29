@@ -11,7 +11,9 @@ class Dinosaur(models.Model):
         (CRETACEOUS, 'Cretaceous')
     ]
     name = models.CharField(max_length=250)
-    age = models.IntegerField(blank=True)
+    description = models.CharField(max_length=600)
+    height = models.DecimalField(blank=True, max_digits=5, decimal_places=4)
+    weight = models.IntegerField(blank=True)
     image = models.URLField(blank=True)
     region = models.CharField(max_length=100)
     geological_era = models.CharField(
