@@ -10,11 +10,12 @@ class Dinosaur(models.Model):
         (JURASSIC, 'Jurassic'),
         (CRETACEOUS, 'Cretaceous')
     ]
-    name: models.CharField(max_length=250)
-    age: models.IntegerField()
-    geological_era: models.CharField(
-      max_length=300,
-      choices=GEOLOGICAL_ERAS
+    name = models.CharField(max_length=250)
+    age = models.IntegerField(blank=True)
+    image = models.URLField(blank=True)
+    region = models.CharField(max_length=100)
+    geological_era = models.CharField(
+        max_length=300,
+        choices=GEOLOGICAL_ERAS,
+        blank=True
     )
-    image: models.URLField()
-    region: models.CharField(max_length=100)
