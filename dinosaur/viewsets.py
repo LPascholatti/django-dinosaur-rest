@@ -1,9 +1,8 @@
-# from django.contrib.auth.models import User
-# from rest_framework import viewsets
+from dinosaur.models import Dinosaur
+from rest_framework import viewsets
 
 # #IMPORT YOUR SERIALIZERS
-# from .serializers import *
+from .serializers import *
 
-# class UsersViewSet(viewsets.ModelViewSet):
-#   queryset = User.objects.all()
-#   serializer_class = UserSerializer
+class DinosaurViewSet(viewsets.ModelViewSet):
+  serializer_class = DinosaurSerializer

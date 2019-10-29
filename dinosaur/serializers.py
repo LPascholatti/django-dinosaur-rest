@@ -1,8 +1,7 @@
-# from django.contrib.auth.models import User
-# from rest_framework import serializers
+from dinosaur.models import Dinosaur
+from rest_framework import serializers
 
-# class UserSerializer(serializers.ModelSerializer):
-#   class Meta:
-#     model = User
-#     fields = '__all__'
-#     # fields = ('id', 'password', 'last_login')
+class DinosaurSerializer(serializers.ModelSerializer):
+    class Meta:
+      model = Dinosaur
+      fields = '__all__'
