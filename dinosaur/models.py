@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Dinosaur(models.Dinosaur):
+class Dinosaur(models.Model):
     TRIASIC = 'TRIASIC'
     JURASSIC = 'JURASSIC'
     CRETACEOUS = 'CRETACEOUS'
