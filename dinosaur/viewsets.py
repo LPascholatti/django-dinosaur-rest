@@ -10,4 +10,3 @@ class DinosaurViewSet(viewsets.ModelViewSet):
     permissions_class = [
       permissions.AllowAny
     ]
-
