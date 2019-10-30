@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     # Add the API endpoint to Global URLS
-    path('', include('dinosaur.urls'))
+    path('', include('dinosaur.urls')),
+    #path('api/dinosaur/<int:pk>/', views.dinosaur_detail)
 ]

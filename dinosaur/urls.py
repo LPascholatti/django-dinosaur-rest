@@ -1,7 +1,19 @@
-from rest_framework import routers
-from .viewsets import DinosaurViewSet
+#Previous implementation using ViewSet
 
-router = routers.DefaultRouter()
-router.register('api/dinosaur', DinosaurViewSet, 'dinosaur')
+# from rest_framework import routers
+# from .viewsets import DinosaurViewSet
 
-urlpatterns = router.urls
+# router = routers.DefaultRouter()
+# router.register('api/dinosaur', DinosaurViewSet, 'dinosaur')
+
+# urlpatterns = router.urls
+
+# New Implementation:
+
+from django.urls import path
+from dinosaur import views
+
+urlpatterns = [
+  path('api/dinosaur/', views.dinosaur_list),
+  path('api/dinosaur/<int:pk>/', views.dinosaur_detail)
+]
