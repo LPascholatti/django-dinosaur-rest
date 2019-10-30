@@ -2,11 +2,11 @@ from django.db import models
 
 
 class Dinosaur(models.Model):
-    TRIASIC = 'TRIASIC'
+    TRIASSIC = 'TRIASSIC'
     JURASSIC = 'JURASSIC'
     CRETACEOUS = 'CRETACEOUS'
     GEOLOGICAL_ERAS = [
-        (TRIASIC, 'Triasic'),
+        (TRIASSIC, 'Triasic'),
         (JURASSIC, 'Jurassic'),
         (CRETACEOUS, 'Cretaceous')
     ]

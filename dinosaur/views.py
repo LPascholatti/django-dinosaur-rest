@@ -1,38 +1,43 @@
-from django.http import HttpResponse, JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
+from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 from dinosaur.models import Dinosaur
 from dinosaur.serializers import DinosaurSerializer
 
 
-@csrf_exempt
-def dinosaur_list(request):
-  if request.method == 'GET':
-    dinosaurs = Dinosaur.objects.all()
-    serializer = DinosaurSerializer(dinosaurs, many=True)
-    return JsonResponse(serializer.data, safe=False)
+@api_view(['GET', 'POST'])
+def dinosaur_list(request, format=None):
+    if request.method == 'GET':
+        dinosaurs = Dinosaur.objects.all()
+        serializer = DinosaurSerializer(dinosaurs, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = DinosaurSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-@csrf_exempt
-def dinosaur_detail(request, pk):
+@api_view(['GET', 'PUT', 'DELETE'])
+def dinosaur_detail(request, pk, format=None):
     try:
-      dinosaur = Dinosaur.objects.get(pk=pk)
+        dinosaur = Dinosaur.objects.get(pk=pk)
     except Dinosaur.DoesNotExist:
-      return HttpResponse(status=404)
+        return Response(status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-      serializer = DinosaurSerializer(dinosaur)
-      return JsonResponse(serializer.data)
-    
+        serializer = DinosaurSerializer(dinosaur)
+        return Response(serializer.data)
+
     elif request.method == 'PUT':
-      data = JSONParser().parse(request)
-      serializer = DinosaurSerializer(dinosaur, data=data)
-      if serializer.is_valid():
-        serializer.save()
-        return JsonResponse(serializer.data)
-      return JsonResponse(serializer.errors, status=400)
+        serializer = DinosaurSerializer(dinosaur, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     elif request.method == 'DELETE':
-      dinosaur.delete()
-      return HttpResponse(status=204)
-
+        dinosaur.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
