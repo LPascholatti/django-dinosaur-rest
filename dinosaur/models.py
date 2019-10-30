@@ -12,7 +12,7 @@ class Dinosaur(models.Model):
     ]
     name = models.CharField(max_length=250)
     description = models.CharField(max_length=600)
-    height = models.DecimalField(blank=True, max_digits=5, decimal_places=4)
+    height = models.DecimalField(blank=True, max_digits=5, decimal_places=2)
     weight = models.IntegerField(blank=True)
     image = models.URLField(blank=True)
     region = models.CharField(max_length=100)
