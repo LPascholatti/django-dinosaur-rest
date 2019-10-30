@@ -1,3 +1,5 @@
+#Previous implementation using ViewSet
+
 # from rest_framework import routers
 # from .viewsets import DinosaurViewSet
 
@@ -6,7 +8,7 @@
 
 # urlpatterns = router.urls
 
-#path('api/dinosaur/<int:pk>/', views.dinosaur_detail)
+# New Implementation:
 
 from django.urls import path
 from dinosaur import views
