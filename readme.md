@@ -4,7 +4,15 @@
 
 ### Development
 
-Implement authorization and authentication coming from the backend to this frontend. 
+-Implement authorization and authentication coming from this backend to the frontend. 
+
+-Yet to be deployed on Heroku.
+
+### Endpoints
+
+You can make requests to the following endpoint: http://127.0.0.1:8000/api/dinosaur/
+
+The admin has a secret password.
 
 ### Hackathon
 
