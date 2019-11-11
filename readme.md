@@ -2,6 +2,8 @@
 
 ## API developed using Django and Django Rest Framework
 
+![Gif](/images/Recording.gif)
+
 ### Development
 
 Implement authorization and authentication coming from the backend to this frontend. 
