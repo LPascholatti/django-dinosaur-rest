@@ -4,9 +4,15 @@
 
 ![Gif](/images/Recording.gif)
 
-### Development
+### Development Branch
 
-Implement authorization and authentication coming from the backend to this frontend. 
+To implement authorization and authentication coming from the backend to this frontend. Sign up and log in users to add new Dinosaurs.
+
+### Endpoints
+
+You can make requests to the following endpoint: http://127.0.0.1:8000/api/dinosaur/
+
+The admin has currently a secret password.
 
 ### Hackathon
 
