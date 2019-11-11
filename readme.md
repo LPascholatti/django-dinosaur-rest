@@ -22,7 +22,8 @@ http://127.0.0.1:8000/api/dinosaur/1/
 
 -With the following result for a GET request:
 
- ```{
+```
+{
         "id": 1,
         "name": "Acanthopholis",
         "description": "Herbivore, Quadrupedal",
@@ -31,7 +32,8 @@ http://127.0.0.1:8000/api/dinosaur/1/
         "image": "https://vignette.wikia.nocookie.net/ppba/images/e/ea/Acanthopholis222_29db.jpg/revision/latest?cb=20181123195027",
         "region": "Europe",
         "geological_era": "CRETACEOUS"
-    }```
+    }
+```
 
 ### Hackathon
 
