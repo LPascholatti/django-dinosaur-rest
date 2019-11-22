@@ -21,3 +21,4 @@ class Dinosaur(models.Model):
         choices=GEOLOGICAL_ERAS,
         blank=True
     )
+    owner = models.ForeignKey('auth.User', related_name='dinosaurs', on_delete=models.CASCADE)
