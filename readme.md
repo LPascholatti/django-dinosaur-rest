@@ -4,15 +4,27 @@
 
 ![Gif](/images/Recording.gif)
 
-### Development Branch
-
-To implement authorization and authentication coming from the backend to this frontend. Sign up and log in users to add new Dinosaurs.
-
 ### Endpoints
 
-You can make requests to the following endpoint: http://127.0.0.1:8000/api/dinosaur/
+If you are an authenticated user, you can make POST requests to the following endpoint: http://127.0.0.1:8000/api/dinosaur/
 
-The admin has currently a secret password.
+Otherwise, only GET requests are allowed.
+
+Alternatively, for authenticated users, you can make CRUD requests to the same 'dinosaur' endpoint using an 'id'. For example: 
+```http -a admin:password123 POST http://127.0.0.1:8000/api/dinosaur/22/```
+
+The admin has currently a secret password. Only the admin can create new users at this moment. To access the 'admin' endpoint use: http://127.0.0.1:8000/admin/
+
+The 'user' endpoint can be accessed by the following 'urls':
+users/
+users/id
+
+#### Login/Logout
+
+To login and logout please use the following endpoints:
+
+http://127.0.0.1:8000/api-auth/login/
+http://127.0.0.1:8000/api-auth/logout/
 
 ### JSON Object
 
@@ -31,8 +43,9 @@ http://127.0.0.1:8000/api/dinosaur/1/
         "weight": 380,
         "image": "https://vignette.wikia.nocookie.net/ppba/images/e/ea/Acanthopholis222_29db.jpg/revision/latest?cb=20181123195027",
         "region": "Europe",
-        "geological_era": "CRETACEOUS"
-  }
+        "geological_era": "CRETACEOUS",
+        "owner": 1
+    }
 ```
 
 ### Hackathon
