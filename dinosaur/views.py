@@ -7,6 +7,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework import permissions
 from dinosaur.serializers import UserSerializer
+from dinosaur.permissions import IsOwnerOrReadOnly
 
 @api_view(['GET', 'POST'])
 def dinosaur_list(request, format=None):
@@ -47,7 +48,8 @@ def dinosaur_detail(request, pk, format=None):
     elif request.method == 'DELETE':
         dinosaur.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+permission_classes = [permissions.IsAuthenticatedOrReadOnly,
+                      IsOwnerOrReadOnly]
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
