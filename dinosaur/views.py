@@ -5,6 +5,7 @@ from dinosaur.models import Dinosaur
 from dinosaur.serializers import DinosaurSerializer
 from django.contrib.auth.models import User
 from rest_framework import generics
+from rest_framework import permissions
 from dinosaur.serializers import UserSerializer
 
 @api_view(['GET', 'POST'])
@@ -20,6 +21,9 @@ def dinosaur_list(request, format=None):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+def perform_create(self, serializer):
+    serializer.save(owner=self.request.user)
+permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -43,6 +47,7 @@ def dinosaur_detail(request, pk, format=None):
     elif request.method == 'DELETE':
         dinosaur.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+permission_classes = [permissions.IsAuthenticatedOrReadOnly]
 
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()

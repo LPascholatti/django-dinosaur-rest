@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Dinosaur(models.Model):
     TRIASSIC = 'TRIASSIC'
     JURASSIC = 'JURASSIC'
