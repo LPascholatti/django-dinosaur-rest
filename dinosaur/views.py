@@ -3,7 +3,9 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from dinosaur.models import Dinosaur
 from dinosaur.serializers import DinosaurSerializer
-
+from django.contrib.auth.models import User
+from rest_framework import generics
+from dinosaur.serializers import UserSerializer
 
 @api_view(['GET', 'POST'])
 def dinosaur_list(request, format=None):
@@ -41,3 +43,11 @@ def dinosaur_detail(request, pk, format=None):
     elif request.method == 'DELETE':
         dinosaur.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
