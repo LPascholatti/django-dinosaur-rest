@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class Dinosaur(models.Model):
     TRIASSIC = 'TRIASSIC'
     JURASSIC = 'JURASSIC'
@@ -21,3 +20,4 @@ class Dinosaur(models.Model):
         choices=GEOLOGICAL_ERAS,
         blank=True
     )
+    owner = models.ForeignKey('auth.User', related_name='dinosaurs', on_delete=models.CASCADE)

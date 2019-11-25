@@ -1,0 +1,1 @@
+web: gunicorn dinosaur_project.wsgi --log-file -
