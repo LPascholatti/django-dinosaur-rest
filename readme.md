@@ -2,6 +2,8 @@
 
 ## API developed using Django and Django Rest Framework
 
+Deployed in Heroku: https://agile-wave-15412.herokuapp.com
+
 ![Gif](/images/Recording.gif)
 
 ### Endpoints
